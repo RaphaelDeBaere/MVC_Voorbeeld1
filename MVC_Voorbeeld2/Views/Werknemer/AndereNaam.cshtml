@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<h2>Rij van fibonacci</h2>
+@{
+    var eersteGetal = 0;
+    var tweedeGetal = 1;
+    string rijVanFibonacci = eersteGetal + "," + tweedeGetal;
+
+    for (var teller = 0; teller < 20; teller++)
+    {
+        if (eersteGetal < tweedeGetal)
+        {
+            eersteGetal = eersteGetal + tweedeGetal;
+            rijVanFibonacci += "," + eersteGetal;
+        }
+        else
+        {
+            tweedeGetal = eersteGetal + tweedeGetal;
+            rijVanFibonacci += "," + tweedeGetal;
+        }
+    }
+    <p>@rijVanFibonacci</p>
+}

@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Mandje";
+    AjaxOptions ajaxOptions = new AjaxOptions
+    {
+        UpdateTargetId = "update",
+        Url = Url.Action("MandjeItemsLijst")
+    };
+}
+<div class="jumbotron">
+    <h1>Het Cultuurhuis <img src="~/Images/mandje.png" alt="winkelmandje" /></h1>
+    <p>
+        <a href="@Url.Action("Index", "Home")"
+           class="btn btn-primary btn-lg">Tickets kiezen &raquo;</a>
+        <a href="@Url.Action("Bevestiging", "Home")"
+           class="btn btn-primary btn-lg">Kassa &raquo;</a>
+    </p>
+</div>
+<p class="lead alert alert-info">Inhoud van uw winkelmandje:</p>
+@using (Ajax.BeginForm("Mandje", ajaxOptions))
+{
+    <div id="update">
+        @Html.Action("MandjeItemsLijst")
+    </div>
+    <div style="position:relative">
+        <input type="submit" value="Selectie verwijderen" class="btn"
+               style="position:absolute; top:-120px; right:0; " />
+    </div>
+}

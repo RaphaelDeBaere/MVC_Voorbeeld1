@@ -1,0 +1,31 @@
+﻿@model List<MVC_Tuincentrum.Models.Plant>
+
+@{
+    ViewBag.Title = "FindPlantenVanEenKleur";
+}
+
+<h2>Planten met als kleur : @ViewBag.kleur</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Naam</th>
+            <th>Soort</th>
+            <th>Leverancier</th>
+            <th>Kleur</th>
+            <th>Verkoopprijs</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <th>@Html.DisplayFor(modelitem => item.Naam)</th>
+            <th>@Html.DisplayFor(modelitem => item.Soort.Naam)</th>
+            <th>@Html.DisplayFor(modelitem => item.Leverancier.Naam)</th>
+            <th>@Html.DisplayFor(modelitem => item.Kleur)</th>
+            <th>@Html.DisplayFor(modelitem => item.VerkoopPrijs)</th>
+        </tr>
+        }
+    </tbody>
+</table>
+

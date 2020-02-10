@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="container body-content">
+        <img src="~/Images/videoVerhuur.jpg" />
+        @if (Session["klant"] != null)
+        {
+            string klant = @Session["klant"].ToString();
+            <p>Welkom, @klant.Remove(klant.LastIndexOf(" "))</p>
+        }
+        else
+        {
+            if (Request.Url.AbsolutePath == "/Home/Aanmelden" || Request.Url.AbsolutePath == "/Home/Afrekenen" || Request.Url.AbsolutePath == "/Home/ValidatieKlantFout")
+            {
+                <p>Eerst aanmelden om te kunnen huren!</p>
+            }
+            else
+            {
+                Response.Redirect("~/Home/Aanmelden");
+            }
+        }
+        @Html.ActionLink("Uitloggen en naar beginpagina", "Uitloggen", "Home")
+        @RenderBody()
+        <hr />
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

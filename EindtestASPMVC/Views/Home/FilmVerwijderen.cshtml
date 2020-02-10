@@ -1,0 +1,13 @@
+﻿@model EindtestASPMVC.Models.Film
+@{
+    ViewBag.Title = "FilmVerwijderen";
+}
+
+<h2>Verwijder gehuurde film</h2>
+
+<p>Ben je zeker dat je "@Model.Titel" niet wil huren ?</p>
+
+<ul class="nav nav-tabs">
+    <li class="col-md-2 col-sm-3 col-xs-4">@Html.ActionLink("JA", "VerwijderFilmVanMandje", new { Model.BandNr })</li>
+    <li class="col-md-2 col-sm-3 col-xs-4">@Html.ActionLink("NEE", "WinkelMandje")</li>
+</ul>

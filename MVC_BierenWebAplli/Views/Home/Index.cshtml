@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <img />
+    <h1>Welkom in de biertempel</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Bieren</h2>
+        <div class="col-lg-1">
+            <p class="btn btn-default">@Html.ActionLink("Raadplegen", "Index", "Bieren")</p>
+            <p class="btn btn-default">@Html.ActionLink("Toevoegen", "Create", "Bieren")</p>
+            <p class="btn btn-default">@Html.ActionLink("Verwijderen", "Delete", "Bieren")</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <h2>Brouwers</h2>
+        <div class="col-lg-1">
+            <p class="btn btn-default">@Html.ActionLink("Raadplegen", "Index", "Brouwer")</p>
+            <p class="btn btn-default">@Html.ActionLink("Toevoegen", "Create", "Brouwer")</p>
+            <p class="btn btn-default">@Html.ActionLink("Verwijderen", "Delete", "Brouwer")</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <h2>Soorten</h2>
+        <div class="col-lg-1">
+            <p class="btn btn-default">@Html.ActionLink("Raadplegen", "Index", "Soorten")</p>
+            <p class="btn btn-default">@Html.ActionLink("Toevoegen", "Create", "Soorten")</p>
+            <p class="btn btn-default">@Html.ActionLink("Verwijderen", "Delete", "Soorten")</p>
+        </div>
+    </div>
+</div>
+
+

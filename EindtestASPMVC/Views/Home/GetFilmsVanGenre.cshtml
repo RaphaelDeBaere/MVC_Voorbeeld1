@@ -1,0 +1,47 @@
+﻿@model List<EindtestASPMVC.Models.Film>
+@{
+    ViewBag.Title = "GetFilmsVanGenre";
+}
+<h1>@ViewBag.genreSoort</h1>
+@if (Model.Count > 0)
+{
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Titel</th>
+                <th class="rechts">Prijs</th>
+                <th class="rechts">In Voorraad</th>
+                <th>Huren</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var film in Model)
+            {
+            <tr>
+                <td class="col-md-3">@film.Titel</td>
+                <td class="col-md-1 rechts">@Html.DisplayFor(v => film.Prijs)</td>
+                <td class="col-md-2 rechts">@film.InVoorraad</td>
+                @if (film.InVoorraad > 0)
+                {
+                    <td class="col-md-1">
+                        @Html.ActionLink("Huren", "Huur", new { filmNummer = film.BandNr })
+                    </td>
+                }
+                else
+                {
+                    <td class="col-md-1"> </td>
+                }
+            </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p class="alert alert-warning">
+        Er zijn geen films van dit genre beschikbaar.
+    </p>
+}
+@Html.ActionLink("Terug naar genre overzicht", "Index")
+
+

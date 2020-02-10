@@ -1,0 +1,14 @@
+﻿@using MVC_Voorbeeld2.Models
+@model List<Werknemer>
+
+<h2>Alle werknemers</h2>
+<ul>
+    @foreach (var werknemer in Model)
+    {
+        <li>@werknemer.Voornaam verdient @werknemer.Wedde</li>
+    }
+</ul>
+@section scripts{
+    <p>Hier komen nog allerlei scripte...</p>
+    }
+

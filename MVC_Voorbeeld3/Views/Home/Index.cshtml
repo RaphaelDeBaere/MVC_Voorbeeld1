@@ -1,0 +1,36 @@
+﻿@model MVC_Voorbeeld3.Models.aantalBezoeken
+@{
+    ViewBag.Title = "Home Page";
+    AjaxOptions ajaxOptions = new AjaxOptions
+    {
+        UpdateTargetId = "update",
+        Url = Url.Action("GetTime"),
+        LoadingElementId="checking",
+        LoadingElementDuration=1000
+    };
+}
+
+<div class="well">
+    @using (Html.BeginForm())
+    {
+        <div>
+            <p class="lead">Het is nu @DateTime.Now</p>
+            <button type="submit" class="btn btn-primary">Bijwerken</button>
+        </div>
+    }
+</div>
+<div class="well">
+    <div id="checking" style="display:none; color:red;">
+        <p>Checking the time...</p>
+    </div>
+    <div id="update">
+        @Html.Action("GetTime")
+    </div>
+    @using (Ajax.BeginForm(ajaxOptions))
+    {
+        <div>
+            <button type="submit" class="btn btn-primary">Bijwerken</button>
+        </div>
+    }
+</div>
+

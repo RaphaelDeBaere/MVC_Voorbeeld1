@@ -1,0 +1,29 @@
+﻿@model int?
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="jumbotron">
+    <h1>Het Cultuurhuis <img src="~/Images/voorstellingen.png" alt="voorstellingen" /></h1>
+    <p>
+        @if (ViewBag.mandjeTonen)
+        {
+            <a href="@Url.Action("Mandje","Home")" class="btn btn-primary btn-lg">Winkelmandje &raquo;</a>
+            <a href="@Url.Action("Bevestiging","Home")" class="btn btn-primary btn-lg">Kassa &raquo;</a>
+        }
+    </p>
+</div>
+@if (!Model.HasValue)
+{
+    <div id="kiesgenre" class="lead alert alert-info">
+        <p>Kies een voorstellingsgenre</p>
+    </div> 
+}
+<div class="well">@Html.Action("GenreLijst", new { gekozenGenre = Model }) </div>
+<div id="lijst">
+    @if (Model.HasValue)
+    {
+        @Html.Action("GetVoorstellingenVanGenre", new { gekozenGenre = Model })
+    }
+</div>

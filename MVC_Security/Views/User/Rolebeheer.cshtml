@@ -1,0 +1,31 @@
+﻿@model System.Data.Entity.IDbSet<Microsoft.AspNet.Identity.EntityFramework.IdentityRole>
+@{
+    ViewBag.Title = "Rolebeheer";
+}
+<h2>Rolebeheer</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Delete role</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var rol in Model)
+        {
+            <tr>
+                <td>@rol.Id</td>
+                <td>@Html.ActionLink(rol.Name, "RoleDetail", new { id = rol.Id })</td>
+                <td align="center">
+                    @if (rol.Name != "admin")
+                    {
+                        <a href='@Url.Action("VerwijderRole", new { id = rol.Id })'>
+                            <img src="~/Images/delete.png" alt="verwijderen" />
+                        </a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

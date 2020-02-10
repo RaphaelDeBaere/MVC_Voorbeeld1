@@ -1,0 +1,16 @@
+﻿@using MVC_Voorbeeld3.Models;
+@model Persoon
+
+@{
+    ViewBag.Title = "Toevoegen";
+}
+
+<h2>Toevoegen</h2>
+@using (Html.BeginForm())
+{
+    @Html.EditorForModel()
+    @Html.EditorFor(m => m.Adres)
+    <input type="submit" value="toevoegen" />
+    @Html.ValidationSummary()
+}
+

@@ -1,0 +1,9 @@
+﻿@model MVC_Security.Models.ApplicationUser
+@{
+    ViewBag.Title = "Verwijderen";
+}
+<h2>User @Model.UserName verwijderen?</h2>
+@using (Html.BeginForm("VerwijderUserDoorvoeren", "User", new { id = Model.Id }))
+{
+    <input type="submit" value="Delete" />
+}

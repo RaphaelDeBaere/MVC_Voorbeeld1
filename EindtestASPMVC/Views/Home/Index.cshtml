@@ -1,0 +1,17 @@
+﻿@model List<EindtestASPMVC.Models.Genre>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<div class="row">
+    <br />
+    <p class="col-md-12 bold">Klik op het gewenste GENRE</p>
+
+    <ul class="nav nav-tabs">
+        @foreach (var genre in Model)
+        {
+            <li class="col-md-2 col-sm-3 col-xs-4">@Html.ActionLink(genre.GenreSoort,"GetFilmsVanGenre", new { genre.GenreNr, genre.GenreSoort }, null)</li>
+        }
+    </ul>
+</div>
